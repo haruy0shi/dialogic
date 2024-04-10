@@ -119,7 +119,10 @@ func create_layout(style:DialogicStyle, parent:Node = null) -> DialogicLayoutBas
 ## we have to load all the info from the current_state_info (basically
 func reload_current_info_into_new_style() -> void:
 	for subsystem in dialogic.get_children():
-		subsystem.load_game_state(LoadFlags.ONLY_DNODES)
+		if subsystem.name == "Portraits":
+			pass
+		else:
+			subsystem.load_game_state(LoadFlags.ONLY_DNODES)
 
 
 ## Returns the style currently in use
