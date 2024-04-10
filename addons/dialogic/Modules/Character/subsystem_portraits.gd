@@ -42,7 +42,7 @@ func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
 
 func pause() -> void:
 	for portrait in dialogic.current_state_info['portraits'].values():
-		if portrait.node.has_meta('animation_node'):
+		if is_instance_valid(portrait.node) and portrait.node.has_meta('animation_node'):
 			portrait.node.get_meta('animation_node').pause()
 
 
